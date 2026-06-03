@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Фан-сайт Sabaton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="flex-header">
+        <h1>Sabaton Fan Chronicles</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contacts-container">
+            
+            <div class="contacts-info-block">
+                <h2>Связь с администрацией</h2>
+                <p>Есть вопросы, предложения по развитию фан-сайта или хотите поделиться крутым контентом? Мы всегда на связи!</p>
+                
+                <ul class="contacts-list">
+                    <li><strong>Главный администратор:</strong> <span>Абакумов Иван</span></li>
+                    <li><strong>Почта поддержки:</strong> <a href="mailto:abakashaa@yandex.ru">abakashaa@yandex.ru</a></li>
+                    <li><strong>Сотрудничество:</strong> <a href="mailto:abakashaa@yandex.ru">abakashaa@yandex.ru</a></li>
+                    <li><strong>Часы ответа:</strong> <span>Ежедневно с 10:00 до 22:00</span></li>
+                </ul>
+
+                <div class="social-links-block">
+                    <h3>Присоединяйтесь к сообществу:</h3>
+                    <div class="social-grid social-flex-container">
+                        
+                        <a href="https://vk.com/sabatonclub" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-vk"></i> ВКонтакте
+                        </a>
+                        
+                        <a href="https://t.me/sabatonHQ" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-telegram-plane"></i> Telegram
+                        </a>
+                        
+                        <a href="https://www.youtube.com/@Sabaton" class="social-item" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="status-block">
+                    <h3>Текущий статус:</h3>
+                    <p>Прием сообщений через форму обратной связи работает в обычном режиме. Администраторы отвечают в течение пары часов.</p>
+                </div>
+            </div>
+
+            <div class="contacts-form-block">
+                <h2>Напишите нам</h2>
+                <form class="feedback-form" action="#" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="user-name">Ваше имя</label>
+                        <input type="text" id="user-name" name="name" placeholder="Введите ваше имя" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-email">Ваш Email</label>
+                        <input type="email" id="user-email" name="email" placeholder="example@mail.ru" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="msg-subject">Тема обращения</label>
+                        <select id="msg-subject" name="subject">
+                            <option value="general">Общий вопрос</option>
+                            <option value="content">Предложить контент/трек</option>
+                            <option value="bug">Ошибка на сайте</option>
+                            <option value="coop">Сотрудничество</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-message">Сообщение</label>
+                        <textarea id="user-message" name="message" rows="5" placeholder="Текст вашего сообщения..." required></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="user-agreement" name="agreement" required>
+                        <label for="user-agreement">Согласен на обработку персональных данных</label>
+                    </div>
+
+                    <button type="submit" class="submit-form-btn">
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                    </button>
+                    
+                </form>
+            </div>
+
+        </div>
+
+        <div class="faq-container">
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <div class="faq-wrapper faq-flex-container">
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Как часто обновляется сайт?</h3>
+                    <p class="faq-answer">Мы добавляем новые материалы по мере выхода релизов группы, свежих новостей и переводов треков — обычно пару раз в неделю.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Где взять обои из галереи?</h3>
+                    <p class="faq-answer">Вы можете открыть любую картинку в галерее, кликнуть по кнопке зума, чтобы открыть её во весь экран, и сохранить через правый клик мыши.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Можно стать автором статей?</h3>
+                    <p class="faq-answer">Конечно! Напишите нам через форму обратной связи на этой странице, выберите тему «Сотрудничество» и расскажите немного о себе.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sabaton Fan Chronicles. Неофициальный фан-сайт. Все права на медиаматериалы принадлежат их законным авторам.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Успешно! Ваше письмо отправлено администрации сайта.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

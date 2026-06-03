@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея — SABATON Fan-Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="flex-header">
+        <h1>Галерея SABATON</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="gallery.html" class="active">Галерея</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        
+        <div class="controls-panel">
+            <div class="stats">
+                <span class="stat-item">
+                    <i class="fas fa-image"></i>
+                    Всего фотографий: <span id="image-counter">0</span>
+                </span>
+                <span class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    Общий уровень уважения: <span id="total-likes">0</span>
+                </span>
+            </div>
+            
+            <div class="view-controls">
+                <button id="grid-view" class="view-btn active"><i class="fas fa-th"></i> Сетка</button>
+                <button id="list-view" class="view-btn"><i class="fas fa-list"></i> Список</button>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <h3><i class="fas fa-filter"></i> Фильтр по категориям:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все фото</button>
+                <button class="filter-btn" data-filter="live">Концерты (Live)</button>
+                <button class="filter-btn" data-filter="promo">Промо и съёмки</button>
+                <button class="filter-btn" data-filter="backstage">Бэкстейдж</button>
+            </div>
+        </div>
+        
+        <div class="gallery-grid" id="image-gallery">
+            
+            <article class="image-card photo" data-category="live">
+                <div class="card-image">
+                    <img src="images/sabaton_1.jpg" alt="Йоаким Броден на концерте в спартанском шлеме" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="1">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Спарта на сцене</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Живое выступление</p>
+                    <p class="image-description">Йоаким Броден исполняет хит 'Sparta' в аутентичном спартанском шлеме. Безумная энергетика и полное погружение в эпоху античных сражений.</p>
+                </div>
+            </article>
+            
+            <article class="image-card photo" data-category="live">
+                <div class="card-image">
+                    <img src="images/sabaton_2.jpg" alt="Группа Sabaton в полном составе на сцене" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="2">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Три гитары и вокал</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Концертный сет</p>
+                    <p class="image-description">Мощный кадр команды Sabaton на пике выступления. Музыканты качают многотысячный стадион в лучах прожекторов.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="live">
+                <div class="card-image">
+                    <img src="images/sabaton_3.jpg" alt="Йоаким Броден играет на гитаре во время шоу" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="3">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Редкое Соло вокалиста</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Live Шоу</p>
+                    <p class="image-description">Уникальный момент концерта: фронтмен Йоаким Броден берёт в руки гитару, чтобы лично выдать мощный тяжелый рифф вместе с остальными гитаристами.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="backstage">
+                <div class="card-image">
+                    <img src="images/sabaton_4.jpg" alt="Группа Sabaton за кулисами с золотыми дисками за альбомы" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="4">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Золотой Статус</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> За кулисами</p>
+                    <p class="image-description">Группа с золотыми дисками за рекорды нового альбома. Исторический триумф Sabaton, запечатленный в неформальной обстановке бэкстейджа.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="backstage">
+                <div class="card-image">
+                    <img src="images/sabaton_5.jpg" alt="Музыканты Sabaton в смешной пляжной одежде на отдыхе" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="5">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Тяжелый метал на море</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Вне туров</p>
+                    <p class="image-description">Суровые металлисты тоже умеют отдыхать! Кадр группы в гавайских рубашках и шортах на морском побережье.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="backstage">
+                <div class="card-image">
+                    <img src="images/sabaton_7.jpg" alt="Группа Sabaton позирует вместе на камеру за кулисами" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="7">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Командный дух</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> За кулисами</p>
+                    <p class="image-description">Душевный кадр из бэкстейджа, где все участники группы собрались вместе чтобы сделать фото. Классная фотография без лишнего пафоса.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="promo">
+                <div class="card-image">
+                    <img src="images/sabaton_6.jpg" alt="Sabaton в доспехах крестоносцев на съёмках нового видеоклипа" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="6">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Тамплиеры</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Промо / Съёмки</p>
+                    <p class="image-description">Эксклюзивный промо-кадр со съёмочной площадки свежего масштабного клипа. Группа примерила на себя тяжелые кольчуги и образы рыцарей-тамплиеров.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="promo">
+                <div class="card-image">
+                    <img src="images/sabaton_8.jpg" alt="Кадр со съёмок видеоклипа на песню The Christmas Truce" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="8">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Рождественское перемирие</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Промо / Съёмки</p>
+                    <p class="image-description">Атмосферный кадр со съёмочной площадки одного из самых эмоциональных клипов группы — 'The Christmas Truce', воссоздающего исторические события 1914 года.</p>
+                </div>
+            </article>
+
+            <article class="image-card photo" data-category="promo">
+                <div class="card-image">
+                    <img src="images/sabaton_9.jpg" alt="Кадр со съёмок клипа The Royal Guard где группа позирует с массовкой" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="9">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Королевская Гвардия</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> Промо / Съёмки</p>
+                    <p class="image-description">Масштабная сцена со съёмок видео 'The Royal Guard'. Музыканты позируют в окружении актеров массовки, облаченных в историческую военную форму шведских гвардейцев.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© Абакумов Иван, студент 1ИП-1-25, 2026 год. Фан-сайт создан в учебных целях.</p>
+        <p class="js-status">Система интерактивности активна!</p>
+    </footer>
+
+    <div id="lightbox-modal" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

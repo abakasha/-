@@ -1,0 +1,944 @@
+/* ==========================================================================
+   1. СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ (ПРАКТИЧЕСКАЯ №2 / №5)
+   ========================================================================== */
+
+/* Глобальный сброс отступов для всех элементов на странице. 
+   box-sizing: border-box гарантирует, что внутренние отступы (padding) и рамки (border) 
+   будут входить в общую ширину элемента, предотвращая поломку верстки. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Базовые стили для всего документа: шрифт без засечек, 
+   общий глубокий темный фон сайта, белый цвет текста и комфортная высота строк. */
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: #111111; 
+    color: white; 
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Псевдоэлемент ::selection отвечает за то, как выглядит текст, 
+   когда пользователь выделяет его мышкой. Задает фирменный золотой фон и темные буквы. */
+::selection {
+    background-color: #ebd4a9;
+    color: #111111;
+}
+
+
+/* ==========================================================================
+   2. ШАПКА САЙТА И МЕНЮ НАВИГАЦИИ (МОДЕРНИЗАЦИЯ ПО ТЗ №5: FLEXBOX)
+   ========================================================================== */
+
+/* Блок шапки сайта. display: flex переводит элемент в режим Flexbox-контейнера.
+   flex-direction: column выстраивает заголовок H1 и меню вертикально друг под другом.
+   align-items: center выравнивает их строго по центру экрана, а gap создает отступ между ними. */
+header {
+    background-color: #1a1a1a;
+    color: #ebd4a9; 
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #ebd4a9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Крупный заголовок сайта. text-transform: uppercase делает все буквы заглавными, 
+   а letter-spacing раздвигает буквы на 2 пикселя для лучшей читаемости. */
+header h1 {
+    font-size: 38px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0; 
+}
+
+/* Навигационный контейнер, занимающий всю доступную ширину. */
+nav {
+    width: 100%;
+}
+
+/* Список ссылок меню, переведенный на Flexbox. 
+   justify-content: center распределяет пункты меню по центру горизонтальной оси.
+   flex-wrap: wrap позволяет пунктам аккуратно переноситься на новую строку на мобильных телефонах.
+   gap: 10px 30px задает гибкие отступы между строками и кнопками меню. */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px 30px; 
+}
+
+nav ul li {
+    margin: 0; 
+}
+
+/* Оформление ссылок в меню: убирается подчеркивание (text-decoration: none),
+   задается жирность и внутренние отступы для формирования красивой кликабельной области.
+   transition: all 0.3s плавность изменения цвета при наведении. */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+/* Псевдокласс :hover (наведение курсора) и класс .active (для кнопки текущей страницы).
+   При срабатывании окрашивают кнопку меню в золотой цвет, а текст делают темным. */
+nav ul li a:hover, 
+nav ul li a.active {
+    background-color: #ebd4a9;
+    color: #111111;
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   3. ОБЩИЕ СТИЛИ СТРАНИЦ (ГЛАВНАЯ И КОНТЕЙНЕРЫ)
+   ========================================================================== */
+
+/* Основной контейнер контента страницы. Задан темно-серый фон, внутренние отступы,
+   скругление углов и мягкая тень (box-shadow) для визуального отделения от общего фона. */
+main {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    margin-bottom: 25px;
+}
+
+/* Подзаголовки разделов. Выделены золотым цветом, имеют нижнюю полупрозрачную рамку 
+   (border-bottom), играющую роль стильного декоративного разделителя текста. */
+h2 {
+    color: #ebd4a9;
+    font-size: 24px;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(235, 212, 169, 0.2);
+}
+
+/* Обычный текст параграфов на сайте. Сделан светло-серым (#cccccc) для снижения нагрузки на глаза. */
+p {
+    color: #cccccc;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Внутренние маркированные списки на страницах. Смещаются вправо (margin-left) для красивой иерархии. */
+main ul {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+main ul li {
+    color: #cccccc;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Выделение важного текста внутри списков чисто белым цветом. */
+main ul li strong {
+    color: white;
+}
+
+/* Подвал сайта (футер). Текст отцентрован, уменьшен, сделан темно-серым, 
+   чтобы не отвлекать внимание, и отделен тонкой серой полосой сверху. */
+footer {
+    background-color: #0a0a0a;
+    color: #666666;
+    text-align: center;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    border-top: 1px solid #222222;
+}
+
+
+/* ==========================================================================
+   4. ПРАКТИЧЕСКАЯ РАБОТА №3 И №5: СТИЛИ ДЛЯ СЕТКИ ГАЛЕРЕИ И КАРТОЧЕК
+   ========================================================================== */
+
+/* Ограничитель максимальной ширины галереи в 1200 пикселей, отцентрированный на экране. */
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+/* Общие стили для панелей фильтрации и управления: рамка, фон, внутренние отступы. */
+.controls-panel, 
+.filters {
+    background: #1a1a1a;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #252525;
+}
+
+/* Панель управления (счетчики и переключатели). Построена на CSS Grid: 
+   первая колонка со статистикой забирает все свободное место (1fr), кнопки встают справа (auto). */
+.controls-panel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Блок со счетчиками. Элементы выстраиваются в ряд с помощью Flexbox. */
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Плашки счетчиков количества фото и общего числа лайков. 
+   Стильная золотая полоса слева (border-left) визуально выделяет данные. */
+.stat-item {
+    background: #222222;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 3px solid #ebd4a9;
+    font-size: 14px;
+}
+
+/* Выделение самих цифр в статистике золотым цветом и жирным начертанием. */
+#image-counter, 
+#total-likes {
+    font-weight: bold;
+    color: #ebd4a9;
+}
+
+/* Контейнер кнопок «Сетка» и «Список». Выстраивает кнопки горизонтально через Flexbox. */
+.view-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* Стили обычных кнопок переключения вида и фильтров: темные, со скруглением и курсором-указателем. */
+.view-btn, 
+.filter-btn {
+    background: #222222;
+    color: #cccccc;
+    border: 1px solid #333;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 13px;
+}
+
+/* Активное состояние кнопок или состояние при наведении мыши. 
+   Кнопки плавно окрашиваются в фирменное золото, а текст становится черным. */
+.view-btn.active, 
+.view-btn:hover, 
+.filter-btn.active, 
+.filter-btn:hover {
+    background: #ebd4a9;
+    color: #111111;
+    border-color: #ebd4a9;
+}
+
+.filters h3 {
+    color: #ebd4a9;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Горизонтальный ряд кнопок фильтров категорий на Flexbox. */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* РЕАЛИЗАЦИЯ CSS GRID ДЛЯ СЕТКИ ГАЛЕРЕИ (Практическая №3).
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) автоматически 
+   рассчитывает и заполняет экран колонками карточек. Ширина колонки никогда не упадет 
+   ниже 300px, а если место позволяет, они будут равномерно растягиваться (1fr). */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Сама карточка картинки. Переведена на вертикальный Flexbox (flex-direction: column).
+   height: 100% заставляет все карточки в одном ряду Grid-сетки быть строго одинаковой высоты.
+   animation запускает плавное появление карточек при загрузке. */
+.image-card {
+    background: #1a1a1a;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #252525;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Контейнер внутри карточки, где лежит картинка. overflow: hidden обрезает 
+   края изображения, когда оно увеличивается от ховер-эффекта. */
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #050505;
+}
+
+/* Обычное состояние картинки. filter делает её изначально чуть затененной 
+   и убирает 15% цветности для создания сурового стиля. transition отвечает за плавность ховера. */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(15%) brightness(90%);
+}
+
+/* ЭФФЕКТ НАВЕДЕНИЯ МЫШИ НА КАРТОЧКУ (Любимый вопрос преподавателей!)
+   Карточка слегка приподнимается вверх (translateY), рамка подсвечивается золотом, 
+   а тень вокруг становится глубже и приобретает золотистый оттенок. */
+.image-card:hover {
+    transform: translateY(-4px);
+    border-color: #ebd4a9;
+    box-shadow: 0 8px 20px rgba(235, 212, 169, 0.15);
+}
+
+/* ЭФФЕКТ ДЛЯ САМОЙ КАРТИНКИ ПРИ НАВЕДЕНИИ НА КАРТОЧКУ.
+   Изображение плавно масштабируется (увеличивается на 4% за счет scale) 
+   и возвращает себе 100% сочных цветов и яркости (grayscale 0%, brightness 100%). */
+.image-card:hover .gallery-img {
+    transform: scale(1.04);
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Плашка с кнопками Лайка и Увеличения, расположенная поверх правого верхнего угла картинки. 
+   Изначально она полностью прозрачна (opacity: 0). Кнопки внутри выстроены по горизонтали через Flexbox. */
+.image-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* При наведении мыши на карточку плашка с кнопками плавно становится видимой (opacity: 1). */
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Базовый стиль кнопок лайка и зума: полупрозрачный черный фон с эффектом размытия 
+   стекла позади (backdrop-filter: blur), чтобы они четко читались на любом изображении. */
+.like-btn, 
+.zoom-btn {
+    background: rgba(17, 17, 17, 0.85);
+    color: white;
+    border: 1px solid #333;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.2s;
+    backdrop-filter: blur(3px);
+}
+
+.like-btn {
+    padding: 0 12px;
+}
+
+.zoom-btn {
+    width: 36px;
+}
+
+/* Если по кнопке лайка кликнули (класс .liked добавляется через JS) или на нее навели мышь — 
+   она окрашивается в сочный красный армейский цвет (#e74c3c). */
+.like-btn:hover, 
+.like-btn.liked {
+    background: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+/* Ховер кнопки увеличения (лупы): окрашивание в золото. */
+.zoom-btn:hover {
+    background: #ebd4a9;
+    color: #111111;
+    border-color: #ebd4a9;
+}
+
+/* Меняет начертание иконки сердца на полностью залитое, когда лайк активен. */
+.like-btn.liked i {
+    font-weight: 900;
+}
+
+.like-count {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Текстовый блок внутри карточки. display: flex с flex-direction: column делают его 
+   внутренним флекс-контейнером. flex-grow: 1 заставляет блок занимать все оставшееся место по вертикали.
+   justify-content: space-between раздвигает элементы: тексты прижимаются к верху, а нижняя часть — к низу.
+   Благодаря этому кнопки и даты во всех карточках всегда выстроены по одной ровной линии! */
+.card-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between; 
+}
+
+/* Дополнительный контейнер для заголовка, даты и описания, удерживающий их вместе. */
+.card-text-wrapper {
+    margin-bottom: 12px;
+}
+
+.image-title {
+    color: #ebd4a9;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.image-date {
+    color: #777777;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.image-description {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Важнейший вспомогательный класс. Используется в JavaScript для мгновенного 
+   скрытия карточек, не подходящих под выбранный фильтр (категорию). */
+.hidden {
+    display: none !important;
+}
+
+/* Ключевые кадры анимации плавного появления карточек (смещение снизу вверх с проявлением прозрачности). */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* МОДИФИКАТОР РЕЖИМА ПОКАЗА «СПИСОК» (Практическая №3).
+   Включается через JS. Отменяет многоколоночную сетку, выстраивая карточки строго в 1 колонку. */
+.gallery-grid.list-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+}
+
+/* Карточка в режиме списка перестраивает направление осей Flexbox (flex-direction: row).
+   Теперь картинка встает СЛЕВА, а текстовый контент — СПРАВА. */
+.gallery-grid.list-layout .image-card {
+    flex-direction: row !important; 
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Фиксирует ширину картинки в режиме горизонтального списка, чтобы она не сжималась. */
+.gallery-grid.list-layout .card-image {
+    width: 320px;
+    min-width: 320px;
+    height: 100% !important;
+    min-height: 210px;
+}
+
+.gallery-grid.list-layout .card-content {
+    padding: 22px;
+    justify-content: center; 
+}
+
+/* Полноэкранный просмотрщик изображений (Модальное окно Lightbox). 
+   Изначально полностью скрыт с экрана (display: none). Размещается поверх всего сайта за счет z-index: 2000. */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.93);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Класс включается через JS при клике на лупу. display: flex активирует показ окна, 
+   а opacity: 1 плавно делает его видимым. */
+.lightbox.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* Сама большая картинка внутри модального окна. Имеет белую рамку, скругления углов 
+   и эффект масштабирования (scale) для красивого вылета при открытии. */
+.lightbox-content {
+    max-width: 85%;
+    max-height: 80%;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.show .lightbox-content {
+    transform: scale(1);
+}
+
+/* Подпись под большой картинкой (название трека/альбома). */
+#lightbox-caption {
+    margin-top: 15px;
+    color: #ddd;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* Кнопка «Крестик» для закрытия модального окна. Размещена в правом верхнем углу. */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+/* При наведении на крестик он плавно увеличивается и желтеет. */
+.lightbox-close:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+
+/* ==========================================================================
+   5. СТРАНИЦА КОНТАКТОВ И ФОРМА ОБРАТНОЙ СВЯЗИ (ПРАКТИЧЕСКАЯ №4 / №5)
+   ========================================================================== */
+
+/* Двухколоночный макет для страницы контактов на CSS Grid: 
+   информационный блок занимает левую часть (1fr), форма — правую (1.2fr). */
+.contacts-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+/* Выполнение требований ТЗ №4: overflow: hidden контролирует переполнение контента,
+   border-radius скругляет углы блоков, а box-shadow создает объемные тени. */
+.contacts-info-block, 
+.contacts-form-block, 
+.faq-container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px; 
+    border: 1px solid #252525;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); 
+    overflow: hidden; 
+}
+
+.contacts-info-block h2, 
+.contacts-form-block h2, 
+.faq-container h2 {
+    color: #ebd4a9;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ebd4a9;
+}
+
+.contacts-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Каждая строчка контактных данных выровнена по горизонтали через Flexbox.
+   justify-content: space-between разносит название контакта влево, а значение — вправо. */
+.contacts-list li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+/* Выполнение требования ТЗ №4 о чередовании стилей строк.
+   Селектор :nth-child(odd) автоматически выбирает каждую СВЕРХУ НЕЧЕТНУЮ строчку списка 
+   и задает ей чуть более светлый фон для удобства чтения (эффект зебры). */
+.contacts-list li:nth-child(odd) {
+    background-color: #222222;
+    border-radius: 4px;
+}
+
+.contacts-list li strong {
+    color: #ebd4a9;
+}
+
+.contacts-list li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contacts-list li a:hover {
+    color: #ebd4a9;
+    text-decoration: underline;
+}
+
+.social-links-block {
+    margin: 25px 0;
+}
+
+.social-links-block h3 {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 12px;
+}
+
+/* Контейнер кнопок соцсетей переведен на Flexbox по ТЗ №5 для гибкого выравнивания. */
+.social-grid {
+    display: flex;
+    gap: 15px;
+}
+
+/* Каждая отдельная кнопка соцсети. flex: 1 заставляет кнопки иметь абсолютно 
+   одинаковую ширину и поровну делить свободное пространство. Flexbox внутри центрирует иконку и текст. */
+.social-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #252525;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+/* При наведении на соцсеть кнопка плавно заливается золотом, приподнимается (translateY) 
+   и обзаводится мягким золотистым свечением тени. */
+.social-item:hover {
+    background-color: #ebd4a9;
+    color: #111111;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(235, 212, 169, 0.2);
+}
+
+/* Блок графика работы. Выделен золотой рамкой слева (border-left). */
+.status-block {
+    background-color: #222222;
+    padding: 15px;
+    border-left: 4px solid #ebd4a9;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+}
+
+.status-block h3 {
+    margin: 0 0 8px 0;
+    color: #ebd4a9;
+    font-size: 15px;
+}
+
+.instruction-text {
+    margin-top: 10px;
+    color: #aaaaaa;
+    font-style: italic;
+}
+
+/* Внедрение Flexbox в структуру формы обратной связи по ТЗ №5.
+   Элементы и инпуты выстраиваются строгой вертикальной колонкой с отступами в 18px. */
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Группа «название поля + инпут». Выстраивается вертикально через Flexbox. */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: bold;
+}
+
+/* Псевдоэлемент ::placeholder отвечает за оформление серых текстовых 
+   подсказок-ориентиров внутри пустых полей ввода. */
+.feedback-form input::placeholder, 
+.feedback-form textarea::placeholder {
+    color: #666666;
+    font-style: italic;
+}
+
+/* Общие стили для полей ввода, селекта выбора темы и текстовой зоны сообщения. */
+.feedback-form input[type="text"], 
+.feedback-form input[type="email"], 
+.feedback-form select, 
+.feedback-form textarea {
+    background-color: #222222;
+    color: white;
+    border: 1px solid #333;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Псевдокласс :focus (Критично для ТЗ №4!). Срабатывает, когда пользователь кликает 
+   внутрь поля ввода. Поле плавно подсвечивается золотой рамкой и обзаводится мягким неоновым свечением. */
+.feedback-form input:focus, 
+.feedback-form select:focus, 
+.feedback-form textarea:focus {
+    outline: none;
+    border-color: #ebd4a9;
+    background-color: #282828;
+    box-shadow: 0 0 8px rgba(235, 212, 169, 0.2);
+}
+
+/* Псевдокласс :focus:invalid (Интерактивная валидация ошибок по ТЗ №4).
+   Если поле является обязательным, но пользователь ввел данные некорректно (например, забыл знак @ в email), 
+   то при фокусе рамка и свечение поля автоматически перекрашиваются в тревожный красный цвет. */
+.feedback-form input:focus:invalid, 
+.feedback-form textarea:focus:invalid {
+    border-color: #e74c3c;
+    box-shadow: 0 0 8px rgba(230, 76, 60, 0.2);
+}
+
+/* Псевдоэлемент ::after (Автоматизация оформления по ТЗ №4).
+   Находит каждый тег label обязательного поля и автоматически дописывает после него 
+   красную звездочку (*), избавляя от необходимости прописывать её вручную в HTML. */
+.form-group label::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+/* Контейнер чекбокса согласия. Элементы (квадратик и текст) выровнены по центру через Flexbox. */
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #aaaaaa;
+    cursor: pointer;
+}
+
+/* Псевдокласс :checked и соседний селектор (+). 
+   Когда пользователь ставит галочку в чекбокс, текст метки <label> позади него 
+   автоматически меняет цвет на золотой и становится жирным. */
+.form-checkbox input:checked + label {
+    color: #ebd4a9;
+    font-weight: bold;
+}
+
+/* Мощная золотая кнопка отправки формы на Flexbox. Иконка самолетика и текст идеально отцентрированы. */
+.submit-form-btn {
+    background-color: #ebd4a9;
+    color: #111111;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-form-btn:hover {
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+/* ==========================================================================
+   6. ДОПОЛНИТЕЛЬНЫЙ БЛОК: FAQ (ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ)
+   ========================================================================== */
+
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+/* Сетка вопросов FAQ построена на трехколонном CSS Grid. */
+.faq-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.faq-item {
+    background-color: #222222;
+    padding: 20px;
+    border-radius: 6px;
+    border-top: 3px solid #ebd4a9; /* Верхняя золотая рамка карточки вопроса */
+}
+
+.faq-question {
+    font-size: 16px;
+    color: #ebd4a9;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* Псевдоэлемент ::before (Декоративные элементы по ТЗ №4).
+   Автоматически внедряет иконку военного рупора из шрифта FontAwesome 
+   прямо перед текстом каждого вопроса, задавая отступ и белый цвет. */
+.faq-question::before {
+    content: "\f0a1";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: white;
+}
+
+.faq-answer {
+    font-size: 14px;
+    color: #cccccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   7. МЕДИА-ЗАПРОСЫ (АДАПТИВНОСТЬ ДЛЯ ЭКРАНОВ ОТ 320PX И ВЫШЕ ПО ТЗ №5)
+   ========================================================================== */
+
+/* Если ширина экрана падает ниже 900px, трехколоночная сетка FAQ перестраивается в 1 колонку. */
+@media (max-width: 900px) {
+    .faq-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ГЛАВНЫЙ МОБИЛЬНЫЙ МЕДИА-ЗАПРОС ДЛЯ ЭКРАНОВ МЕНЬШЕ 768PX (Адаптация Flexbox по ТЗ №5). */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 28px; 
+    }
+
+    /* МАГИЯ АДАПТИВНОСТИ МЕНЮ: Переводим ось флексов на вертикальную колонку.
+       Пункты меню встают ровным вертикальным списком друг под друга. */
+    nav ul {
+        flex-direction: column; 
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    /* Ссылки меню превращаются в блочные элементы (display: block) и растягиваются во всю 
+       ширину экрана смартфона. По ним теперь максимально удобно попадать пальцем. */
+    nav ul li a {
+        display: block; 
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Схлопываем двухколоночную Grid-панель управления в 1 колонку с центрированием текстов. */
+    .controls-panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+
+    .view-controls {
+        justify-content: center;
+    }
+
+    /* Если на мобилке включен режим «Список», мы через !important заставляем карточки 
+       снова собраться по вертикали (column), чтобы картинки не сжимались в кашу. */
+    .gallery-grid.list-layout .image-card {
+        flex-direction: column !important; 
+    }
+
+    .gallery-grid.list-layout .card-image {
+        width: 100%;
+        min-width: 100%;
+        height: 220px !important;
+    }
+    
+    /* Двухколоночный макет контактов (информация + форма) на телефонах превращается в 1 ровную колонку. */
+    .contacts-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .faq-container {
+        margin: 0 15px 40px;
+    }
+
+    /* Кнопки соцсетей перестраиваются во флекс-колонку и встают вертикальным стеком. */
+    .social-grid {
+        flex-direction: column; 
+        gap: 10px;
+    }
+}
